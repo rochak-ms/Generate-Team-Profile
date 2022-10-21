@@ -1,0 +1,22 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Application to generate team profile",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rochak-ms/Generate-Team-Profile.git"
+  },
+  "author": "Rochak Shrestha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rochak-ms/Generate-Team-Profile/issues"
+  },
+  "homepage": "https://github.com/rochak-ms/Generate-Team-Profile#readme"
+}
