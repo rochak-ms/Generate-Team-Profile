@@ -1,8 +1,8 @@
 // create Manager card
 generateManager = (manager) => {
   return `
-  <div class="col-6 col-md-6 col-lg-5 mt-4">
-            <div class="card border-0">
+  <div class="col-6 col-md-6 col-lg-4 mt-4">
+            <div class="card h-100 border-0">
               <div class="card-header gr-1">
                 <h3>${manager.name}</h3>
                 <h4>Manager</h4>
@@ -19,7 +19,7 @@ generateManager = (manager) => {
                     Email:
                     <a href="mailto:${manager.email}">${manager.email}</a>
                   </li>
-                  <li class="list-group-item office">Office Number: ${manager.officeNumber}</li>
+                  <li class="list-group-item office">Office No.:${manager.officeNumber}</li>
                 </ul>
               </div>
             </div>
@@ -30,8 +30,8 @@ generateManager = (manager) => {
 // create Engineer card
 generateEngineer = (engineer) => {
   return `
-  <div class="col-6 col-md-6 col-lg-5 mt-4">
-            <div class="card border-0">
+  <div class="col-6 col-md-6 col-lg-4 mt-4">
+            <div class="card h-100 border-0">
               <div class="card-header gr-2">
                 <h3>${engineer.name}</h3>
                 <h4>Engineer</h4>
@@ -61,8 +61,8 @@ generateEngineer = (engineer) => {
 // create Intern card
 generateIntern = (intern) => {
   return `
-  <div class="col-6 col-md-6 col-lg-5 mt-4">
-            <div class="card border-0">
+  <div class="col-6 col-md-6 col-lg-4 mt-4">
+            <div class="card h-100 border-0">
               <div class="card-header gr-3">
                 <h3>${intern.name}</h3>
                 <h4>Intern</h4>
