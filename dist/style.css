@@ -13,7 +13,7 @@ usage => font-family: 'Poppins', sans-serif;*/
   transition: .5s;
 }
 
-
+/* setting css variables for color */
 :root{
 --gr-1:linear-gradient(170deg, #01E4F8 0%, #1D3EDE 100%);
 --gr-2:linear-gradient(170deg, #B4EC51 0%, #429321 100%);
@@ -39,7 +39,9 @@ body{
 .card{
   font-family: 'Oswald', sans-serif;
   color: var(--b);
+  box-shadow: 0 0 21px rgba(0,0,0,.27);
 }
+
 .card-header {
   /* min-height: 120px; */
   background-color: var(--gr-1);
