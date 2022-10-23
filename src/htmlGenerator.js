@@ -1,27 +1,134 @@
 // create Manager card
 generateManager = (manager) => {
   return `
+  <div class="col-6 col-md-6 col-lg-5 mt-4">
+            <div class="card border-0">
+              <div class="card-header gr-1">
+                <h3>${manager.name}</h3>
+                <h4>Manager</h4>
+                <div class="ico-card">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <ul
+                  class="list-group border list-group-flush mt-2 mb-2 rounded shadow-sm"
+                >
+                  <li class="list-group-item id">ID: ${manager.id}</li>
+                  <li class="list-group-item email">
+                    Email:
+                    <a href="mailto:${manager.email}">${manager.email}</a>
+                  </li>
+                  <li class="list-group-item office">Office Number: ${manager.officeNumber}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
   `;
 };
 
 // create Engineer card
 generateEngineer = (engineer) => {
   return `
+  <div class="col-6 col-md-6 col-lg-5 mt-4">
+            <div class="card border-0">
+              <div class="card-header gr-2">
+                <h3>${engineer.name}</h3>
+                <h4>Engineer</h4>
+                <div class="ico-card">
+                  <i class="fa-solid fa-helmet-safety"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <ul
+                  class="list-group border list-group-flush mt-2 mb-2 rounded shadow-sm"
+                >
+                  <li class="list-group-item id">ID: ${engineer.id}</li>
+                  <li class="list-group-item email">
+                    Email:
+                    <a href="mailto:${engineer.email}">${engineer.email}</a>
+                  </li>
+                  <li class="list-group-item github">
+                    GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
   `;
 };
 
 // create Intern card
 generateIntern = (intern) => {
   return `
+  <div class="col-6 col-md-6 col-lg-5 mt-4">
+            <div class="card border-0">
+              <div class="card-header gr-3">
+                <h3>${intern.name}</h3>
+                <h4>Intern</h4>
+                <div class="ico-card">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <ul
+                  class="list-group border list-group-flush mt-2 mb-2 rounded shadow-sm"
+                >
+                  <li class="list-group-item id">ID: ${intern.id}</li>
+                  <li class="list-group-item email">
+                    Email:
+                    <a href="mailto:r${intern.email}">${intern.email}</a>
+                  </li>
+                  <li class="list-group-item school">School: ${intern.school}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
   `;
 };
 
-// generate html page
-module.exports = (templateData) => {
-  const { manager, engineer, intern } = templateData;
+// push array to page
+htmlGenerator = (data) => {
+  // array for cards
+  cardArray = [];
 
+  for (let i = 0; i < data.length; i++) {
+    const employee = data[i];
+    const role = employee.getRole();
+
+    // call manager function
+    if (role === "Manager") {
+      const managerCard = generateManager(employee);
+
+      cardArray.push(managerCard);
+    }
+
+    // call engineer funtion
+    if (role === "Engineer") {
+      const engineerCard = generateEngineer(employee);
+
+      cardArray.push(engineerCard);
+    }
+
+    // call intern function
+    if (role === "Intern") {
+      const internCard = generateIntern(employee);
+
+      cardArray.push(internCard);
+    }
+  }
+
+  // joining strings
+  const employeeCards = cardArray.join("");
+
+  // return to generated page
+  const generateTeam = generateTeamPage(employeeCards);
+  return generateTeam;
+};
+
+// generate html page
+const generateTeamPage = function (employeeCards) {
   return `
-  
   <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,9 +162,7 @@ module.exports = (templateData) => {
           class="row justify-content-center align-items-center"
         >
         <!--Team Cards-->
-        ${generateManager(manager)};
-        ${generateEngineer(engineer)};
-        ${generateIntern(intern)};
+        ${employeeCards}
         </div>
         </div>
       </main>
@@ -79,3 +184,6 @@ module.exports = (templateData) => {
   </html>  
   `;
 };
+
+// export to index.html
+module.exports = htmlGenerator;

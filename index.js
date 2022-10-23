@@ -1,3 +1,6 @@
+// link to create page
+const generatePage = require("./src/htmlGenerator");
+
 // team profiles
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
@@ -6,8 +9,6 @@ const Intern = require("./lib/Intern");
 // node modules
 const fs = require("fs");
 const { default: inquirer } = require("inquirer");
-// link to create page
-const generatePage = require("./src/htmlGenerator");
 
 // Team array
 const teamArray = [];
