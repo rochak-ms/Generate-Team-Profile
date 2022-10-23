@@ -31,7 +31,7 @@ body{
 }
 
 .container {
-  margin: 8rem auto;
+  margin: 100px auto;
   justify-content: space-evenly;
   display: flex;
 }
